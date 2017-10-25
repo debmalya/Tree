@@ -52,5 +52,24 @@ public class GenericNodeTest {
 		Assert.assertEquals(Integer.valueOf(110), foundNodeInteger.getRight().getValue());
 		Assert.assertEquals(Integer.valueOf(120), foundNodeInteger.getRight().getRight().getValue());
 	}
+	
+	@Test
+	public void testPreOrder(){
+		GenericNode<String> traversal = new GenericNode<>();
+		traversal.setValue("+");
+		
+		GenericNode<String> left = new GenericNode<>();
+		left.setValue("2");
+		traversal.setLeft(left);
+		
+		GenericNode<String> right = new GenericNode<>();
+		right.setValue("3");
+		traversal.setRight(right);
+		
+		Assert.assertEquals("+23",traversal.preOrder(traversal));
+		Assert.assertEquals("23+",traversal.postOrder(traversal));
+		Assert.assertEquals("2+3",traversal.inOrder(traversal));
+
+	}
 
 }

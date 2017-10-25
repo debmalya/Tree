@@ -161,6 +161,40 @@ public class GenericNode<T extends Comparable<T>> {
 			}
 			addNode(this.left, value);
 		}
-
+	}
+	/**
+	 * 
+	 * @param root
+	 * @return pre order traversal String.
+	 */
+	public String preOrder(GenericNode<T> root){
+		if (root != null){
+			return ""+root.value+preOrder(root.left)+preOrder(root.right);
+		}
+		return "";
+	}
+	
+	/**
+	 * 
+	 * @param root
+	 * @return post order traversal String.
+	 */
+	public String postOrder(GenericNode<T> root){
+		if (root != null){
+			return postOrder(root.left)+postOrder(root.right)+root.value;
+		}
+		return "";
+	}
+	
+	/**
+	 * 
+	 * @param root
+	 * @return post order traversal String.
+	 */
+	public String inOrder(GenericNode<T> root){
+		if (root != null){
+			return inOrder(root.left)+root.value+inOrder(root.right);
+		}
+		return "";
 	}
 }

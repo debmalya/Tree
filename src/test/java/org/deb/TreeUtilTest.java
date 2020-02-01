@@ -37,7 +37,6 @@ public class TreeUtilTest {
 
         int[] expected = new int[]{1, 2, 4, 3, 5};
         int[] actual = treeUtil.traverseTree(t);
-        System.out.println(Arrays.toString(actual));
         assertArrayEquals(expected, actual);
 
         t = new Tree<>(1);
@@ -50,7 +49,17 @@ public class TreeUtilTest {
 
         expected = new int[]{1, 2, 4, 7, 3, 5, 11};
         actual = treeUtil.traverseTree(t);
-        System.out.println(Arrays.toString(actual));
+        assertArrayEquals(expected, actual);
+
+        t = new Tree<>(1);
+        t.setLeft(new Tree<>(2));
+        t.setRight(new Tree<>(4));
+        t.getLeft().setRight(new Tree<>(3));
+        t.getLeft().setLeft(new Tree<>(6));
+        t.getRight().setLeft(new Tree<>(5));
+
+        expected = new int[]{1, 2, 4, 6, 3, 5};
+        actual = treeUtil.traverseTree(t);
         assertArrayEquals(expected, actual);
     }
 }

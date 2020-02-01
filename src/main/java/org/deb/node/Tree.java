@@ -13,8 +13,11 @@ public class Tree<T> {
 		value = x;
 	}
 
+
 	Tree<T> left;
 	Tree<T> right;
+
+    
 
 	public T getValue() {
 		return value;
@@ -40,22 +43,26 @@ public class Tree<T> {
 		this.right = right;
 	}
 
-	/**
-	 * 
-	 * @param t
-	 * @return
-	 */
-	public boolean isTreeSymmetric(Tree<T> t) {
-		if (t != null) {
-			return mirrorEquals(t.left, t.right);
-		}
-		return true;
+	public boolean isTreeSymmetric(Tree<Integer> t) {
+		Tree<Integer> original = t;
+		String preOrder = leftOrder(t);
+		String postOrder = rightOrder(original);
+		return preOrder.equals(postOrder);
 	}
 
-	boolean mirrorEquals(Tree<T> left, Tree<T> right) {
-		if (left == null || right == null)
-			return left == null && right == null;
-		return left.value == right.value && mirrorEquals(left.left, right.right)
-				&& mirrorEquals(left.right, right.left);
+
+	public String rightOrder(Tree<Integer> t){
+		if (t!=null){
+			return ""+rightOrder(t.right)+rightOrder(t.left)+t.value;
+		}
+		return " ";
 	}
+
+	public String leftOrder(Tree<Integer> t){
+		if (t!=null){
+			return ""+leftOrder(t.left)+leftOrder(t.right)+t.value;
+		}
+		return " ";
+	}
+
 }

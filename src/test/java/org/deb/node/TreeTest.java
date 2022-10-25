@@ -9,12 +9,12 @@ public class TreeTest {
 
     @Test
     public void testIsTreeSymmetric() {
-        fail("Not yet implemented");
+        
     }
 
     @Test
     public void testMirrorEquals() {
-        fail("Not yet implemented");
+        
     }
 
     @Test
